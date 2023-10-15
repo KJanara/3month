@@ -34,7 +34,7 @@ SELECT * FROM telegram_users WHERE TELEGRAM_ID = ?
 '''
 
 INSERT_BAN_USER_QUERY = '''
-INSERT INTO ban_users VALUES (?,?,?,?)
+INSERT OR IGNORE INTO ban_users VALUES (?,?,?,?)
 '''
 
 UPDATE_BAN_USER_COUNT_QUERY = '''

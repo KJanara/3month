@@ -30,7 +30,7 @@ class Database:
       'first_name': row[3],
       'last_name': row[4],
     }
-    self.cursor.execute(
+    return self.cursor.execute(
       sql_queries.SELECT_ALL_USER_QUERY
     ).fetchall()
     # self.connection.commit()
@@ -58,7 +58,7 @@ class Database:
       'first_name': row[3],
       'last_name': row[4],
     }
-    self.cursor.execute(
+    return self.cursor.execute(
       sql_queries.SELECT_USER_QUERY,
       (telegram_id,)
     ).fetchall()

@@ -3,7 +3,8 @@ from config import bot
 from database.sql_commands import Database
 from keyboards.inline_buttons import (
   start_keyboard,
-  admin_keybords,)
+  admin_keybords, )
+
 
 async def start_button(message: types.Message):
   print(message)
@@ -62,8 +63,10 @@ async def admin_user_list_call(call: types.CallbackQuery):
     chat_id=call.from_user.id,
     text='\n'.join(user_list)
   )
+
+
 def register_start_handlers(dp: Dispatcher):
   dp.register_message_handler(start_button, commands=['start'])
   dp.register_message_handler(secret_word, lambda word: "pupi" in word.text)
   dp.register_callback_query_handler(admin_user_list_call,
-                                       lambda word: word.data == "admin_user_list")
+                                     lambda word: word.data == "admin_user_list")
