@@ -12,15 +12,17 @@ async def start_quesionnaire(call: types.callback_query):
 
 
 async def yes_answer(call: types.callback_query):
-  await bot.send_message(
+  await bot.edit_message_text(
     chat_id=call.message.chat.id,
+    message_id=call.message.message_id,
     text="You'll have a trip soon",
   )
 
 
 async def no_answer(call: types.callback_query):
-  await bot.send_message(
+  await bot.edit_message_text(
     chat_id=call.message.chat.id,
+    message_id=call.message.message_id,
     text="Don't forget to take a break",
   )
 

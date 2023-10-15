@@ -23,3 +23,13 @@ async def quesionnaire_one_keybords():
   markup.add(yes_button)
   markup.add(no_button)
   return markup
+
+async def admin_keybords():
+  markup = InlineKeyboardMarkup()
+  admin_user_list_button = InlineKeyboardButton(
+    "user list",
+    callback_data="admin_user_list"
+  )
+  markup.add(admin_user_list_button)
+  return markup
+
