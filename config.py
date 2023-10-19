@@ -6,4 +6,4 @@ storage = MemoryStorage()
 TOKEN = config("TOKEN")
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot=bot, storage=storage)
-DESTINATION = "C:/Users/User/3month/media"
+DESTINATION = "C:/Users/User/3month"

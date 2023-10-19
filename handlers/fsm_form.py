@@ -79,7 +79,7 @@ async def load_occupation(message: types.Message, state: FSMContext):
 
 async def load_photo(message: types.Message, state: FSMContext):
   path = await message.photo[-1].download(
-    destination=DESTINATION + "media"
+    destination_dir=DESTINATION + "media"
   )
   async with state.proxy() as data:
     try:
@@ -114,7 +114,7 @@ async def load_photo(message: types.Message, state: FSMContext):
 
 
 async def my_profile_call(call: types.CallbackQuery):
-  user_form = Database().sql_insert_user_form_query(
+  user_form = Database().sql_select_user_form_query(
     telegram_id=call.from_user.id,
   )
   try:
