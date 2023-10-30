@@ -20,14 +20,19 @@ async def start_keyboard():
     callback_data="random_profile"
   )
   reference_menu_button = InlineKeyboardButton(
-    "Referral Menu 💵",
+    "Referral Menu ",
     callback_data="reference_menu"
+  )
+  latest_movies_button = InlineKeyboardButton(
+    "latest movies ",
+    callback_data="latest_movies"
   )
   markup.add(quastionaire_button)
   markup.add(registration_button)
   markup.add(my_profile_button)
   markup.add(view_profiles_button)
   markup.add(reference_menu_button)
+  markup.add(latest_movies_button)
   return markup
 
 
