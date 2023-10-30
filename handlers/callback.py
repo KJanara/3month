@@ -27,13 +27,16 @@ async def no_answer(call: types.callback_query):
     message_id=call.message.message_id,
     text="Don't forget to take a break",
   )
+
+
 async def latest_movies(call: types.callback_query):
+  print('meee')
   scraper = MoviesScraper()
   links = scraper.parse_date()
   for link in links:
-    await bot.edit_message_text(
+    await bot.send_message(
       chat_id=call.message.chat.id,
-      text=scraper.LINK_XPATH + link,
+      text=scraper.PlUS_URL + link,
     )
 
 def reqister_callback_handlers(dp: dispatcher):

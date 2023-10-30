@@ -31,14 +31,16 @@ async def reference_link_call(call: types.CallbackQuery):
     await bot.send_message(
       chat_id=call.from_user.id,
       text=f"Hello {call.from_user.first_name}\n"
-           f"here is your new link{link}",
+           f"here is your new link \n"
+           f"{link}",
       reply_markup=await reference_menu_keyboard()
     )
   else:
     await bot.send_message(
       chat_id=call.from_user.id,
       text=f"Hello {call.from_user.first_name}\n"
-           f"here is your old link{user[0]['link']}",
+           f"here is your old link\n"
+           f"{user[0]['link']}",
       reply_markup=await reference_menu_keyboard()
     )
 
