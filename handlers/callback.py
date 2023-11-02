@@ -1,8 +1,7 @@
 from aiogram import types, dispatcher
 from config import bot
 from keyboards.inline_buttons import quesionnaire_one_keybords
-from scraping.scraper import MoviesScraper
-
+from scraping.async_m_scraper import NewMoviesScraper
 
 async def start_quesionnaire(call: types.callback_query):
   print(call)
@@ -30,13 +29,12 @@ async def no_answer(call: types.callback_query):
 
 
 async def latest_movies(call: types.callback_query):
-  print('meee')
-  scraper = MoviesScraper()
-  links = scraper.parse_date()
+  scraper = NewMoviesScraper()
+  links = scraper.parse_page()
   for link in links:
     await bot.send_message(
       chat_id=call.message.chat.id,
-      text=scraper.PlUS_URL + link,
+      text=link
     )
 
 def reqister_callback_handlers(dp: dispatcher):

@@ -2,6 +2,7 @@ from parsel import Selector
 import requests
 
 class MoviesScraper:
+
   URL = "https://doramy.club/filmy"
   LINK_XPATH = '//section[@class="post-list"]/div/a/@href'
   PlUS_URL = 'https://doramy.club/'
@@ -10,8 +11,9 @@ class MoviesScraper:
     tree = Selector(text=html)
     links = tree.xpath(self.LINK_XPATH).extract()
     for link in links:
-      print(self.PlUS_URL + link)
+      print(link)
     return links[:5]
+
 
 
 
