@@ -2,7 +2,7 @@ from aiogram import executor
 from config import dp
 from handlers import start, callback, chat_actions,fsm_form,reference_menu
 from database.sql_commands import Database
-
+from database.sql_commands import Database
 
 async def onstart_up(_):
   db = Database()
